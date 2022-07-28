@@ -157,16 +157,16 @@ function depositaSaldoModal() {
     let saldoNew = parseInt(deposito.value) + parseInt(saldo.value);
 
     //Se valida que el saldo restante no sea negativo
-    if (deposito.value < 0) {
+    if (parseInt(deposito.value) < 0) {
         //Mostrar mensaje fallido.
         errorMensajeDepositar("", "SALDO NEGATIVO, INTENTE CON UN IMPORTE POSITIVO.");
 
         //Ocultar mensaje fallido despues de 2 segundos.
         setTimeout(errorMensajeDepositar, 4000, "hidden", "");
         return;
-    } else if (saldoNew > rangMax){ //Si la suma del saldo y el deposito es mayor que el saldo permitido informar al usuario.
+    } else if (parseInt(saldoNew) > parseInt(rangMax)){ //Si la suma del saldo y el deposito es mayor que el saldo permitido informar al usuario.
         //Mostrar mensaje fallido.
-        errorMensajeDepositar("", `"SALDO MAS DEPOSITO SOBREPASA ${rangMax} DE LA CANTIDAD PERMITIDA, INTENTE CON UN IMPORTE MENOR."`);        
+        errorMensajeDepositar("", `"EL SALDO MAS DEPOSITO SOBREPASA ${rangMax} DE LA CANTIDAD PERMITIDA, INTENTE CON UN IMPORTE MENOR."`);        
 
         //Ocultar mensaje fallido despues de 2 segundos.
         setTimeout(errorMensajeDepositar, 4000, "hidden", "");
@@ -206,23 +206,23 @@ function retiraSaldoModal() {
     let saldoNew = parseInt(impSaldo.value) - parseInt(impRetiro.value);
 
     //Se valida que el saldo restante no sea negativo
-    if (impRetiro.value > impSaldo.value) {
+    if (parseInt(impRetiro.value) > parseInt(impSaldo.value)) {
         //Mostrar mensaje fallido.
         errorMensajeRetirar("", "SALDO INSUFICIENTE, INTENTE CON UN IMPORTE MENOR.");
 
         //Ocultar mensaje fallido despues de 4 segundo.
         setTimeout(errorMensajeRetirar, 4000, "hidden", "");
         return;
-    } else if (impRetiro.value < 0) {
+    } else if (parseInt(impRetiro.value) < 0) {
         //Mostrar mensaje fallido.
         errorMensajeRetirar("", "SALDO NEGATIVO, INTENTE CON UN IMPORTE POSITIVO.");
 
         //Ocultar mensaje fallido despues de 4 segundo.
         setTimeout(errorMensajeRetirar, 4000, "hidden", "");
         return;
-    } else if (saldoNew < rangMin) { //Si la resta del saldo con el retiro es menor que el saldo permitido informar al usuario.
+    } else if (parseInt(saldoNew) < parseInt(rangMin)) { //Si la resta del saldo con el retiro es menor que el saldo permitido informar al usuario.
         //Mostrar mensaje fallido.
-        errorMensajeRetirar("", `"SALDO MENOS TRANSFERENCIA ES MENOR QUE <<${rangMin}>> DE LA CANTIDAD PERMITIDA, INTENTE CON UN RETIRO MENOR."`);        
+        errorMensajeRetirar("", `"EL SALDO MENOS TRANSFERENCIA ES MENOR QUE <<${rangMin}>> DE LA CANTIDAD PERMITIDA, INTENTE CON UN RETIRO MENOR."`);        
 
         //Ocultar mensaje fallido despues de 4 segundos.
         setTimeout(errorMensajeRetirar, 4000, "hidden", "");

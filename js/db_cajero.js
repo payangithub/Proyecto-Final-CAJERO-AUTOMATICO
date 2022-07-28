@@ -4,17 +4,24 @@ let usuarios = [
     {
         id: "1",
         nombre: "Tomas",
-        apellidos: "Castro Lopez",
-        usuario: "Tomas1985",
-        password: "Sinaloa90",
+        apellidos: "Guzman Salazar",
+        usuario: "1",
+        password: "1",
 
     },
     {
         id: "2",
-        nombre: "Guadalupe",
-        apellidos: "Payan Camacho",
-        usuario: "1",
-        password: "1",
+        nombre: "Miguel",
+        apellidos: "Payan Castro",
+        usuario: "2",
+        password: "2",
+    },
+    {
+        id: "3",
+        nombre: "Armando",
+        apellidos: "Lopez Ontivero",
+        usuario: "3",
+        password: "3",
     }
 ];
 
@@ -42,7 +49,14 @@ let cuentas = [
         idusuario: "2",
         numerocta: "11000294062",
         saldo: "20",
+    },
+    {
+        id: "5",
+        idusuario: "3",
+        numerocta: "19000294789",
+        saldo: "89",
     }
+
 ];
 
 let rangosaldos = [
