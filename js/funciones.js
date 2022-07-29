@@ -75,7 +75,7 @@ function habilitarOperacion() {
     let flagDepositar = "";
     let flagRetirar = "";   
 
-    if (document.getElementById("saldoActual").value == '') {
+    if (document.getElementById("saldoActual").value == '' || document.getElementById("saldoActual").value =='0') {
         flagDepositar = 'disabled style="background: black;"';
         flagRetirar = 'disabled style = "background: black;"';
     } else if (document.getElementById("saldoActual").value === '0') {
@@ -171,6 +171,13 @@ function depositaSaldoModal() {
         //Ocultar mensaje fallido despues de 2 segundos.
         setTimeout(errorMensajeDepositar, 4000, "hidden", "");
         return;
+    } if (parseInt(deposito.value) == 0 || deposito.value =='' ) {
+        //Mostrar mensaje fallido.
+        errorMensajeDepositar("", "IMPORTE INGRESADO INCORRECTO, INTENTE CON UN IMPORTE MAYOR A CERO.");
+
+        //Ocultar mensaje fallido despues de 2 segundos.
+        setTimeout(errorMensajeDepositar, 4000, "hidden", "");
+        return;
     }
 
     //Obtener la cuenta en turno.
@@ -227,8 +234,14 @@ function retiraSaldoModal() {
         //Ocultar mensaje fallido despues de 4 segundos.
         setTimeout(errorMensajeRetirar, 4000, "hidden", "");
         return;
-    }
+    } else if(parseInt(impRetiro.value) == 0 || impRetiro.value == '' ){
+        //Mostrar mensaje fallido.
+        errorMensajeRetirar("", "IMPORTE INGRESADO INCORRECTO, INTENTE CON UN IMPORTE MAYOR A CERO.");        
 
+        //Ocultar mensaje fallido despues de 4 segundos.
+        setTimeout(errorMensajeRetirar, 4000, "hidden", "");
+        return;
+    }
 
     //Se inicializa objeto.
     cuentaUser.numcta = "";

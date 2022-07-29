@@ -11,7 +11,8 @@ const validaUsuario = {
 }
 
 //Crear evento para ejecutar la validacion del usuario-password.
-frmLogin.addEventListener('submit', (e) => {
+//frmLogin.addEventListener('submit', (e) => {
+frmLogin.addEventListener('submit',(e) => {    
     //Se detiene la accion del submit para hacer el proximo bloque de codigo.    
     e.preventDefault();
 
